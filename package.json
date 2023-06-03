@@ -1,0 +1,41 @@
+{
+  "name": "@gadingnst/fullstack-next-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "prepare": "husky install",
+    "lint": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --max-warnings 0",
+    "lint:fix": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --fix"
+  },
+  "dependencies": {
+    "mongodb": "^5.5.0",
+    "next": "13.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-inlinesvg": "^3.0.2",
+    "react-lazy-load-image-component": "^1.5.6"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-lazy-load-image-component": "^1.5.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "autoprefixer": "^10.4.14",
+    "clsx": "^1.2.1",
+    "eslint": "^8.42.0",
+    "eslint-config-next": "^13.4.4",
+    "husky": "^8.0.3",
+    "postcss": "^8.4.24",
+    "postcss-import": "^15.1.0",
+    "tailwind-merge": "^1.12.0",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.1.3",
+    "typescript-plugin-css-modules": "^5.0.1"
+  }
+}
