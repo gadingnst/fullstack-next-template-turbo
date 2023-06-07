@@ -34,10 +34,10 @@ export const Button: FunctionComponent<PropsWithChildren<Props>> = (props) => {
       disabled={disabled}
       onClick={handleClick}
       className={clsxm([
-        'bg-blue-500 text-white py-2 px-4 rounded-full',
+        'bg-blue-500 py-2 px-4 rounded-full',
         'text-center relative',
+        'disabled:opacity-60',
         block && 'w-full',
-        disabled && 'opacity-60',
         className
       ])}
     >
