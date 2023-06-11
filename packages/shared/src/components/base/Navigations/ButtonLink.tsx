@@ -1,8 +1,9 @@
-import type { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
-import Button, { type Props as ButtonProps } from '@shared/components/base/Buttons/Button';
+'use client';
 
+import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import Link from 'next/link';
-import clsxm from '@shared/utils/clsxm';
+import Button, { Props as ButtonProps } from '@shared/components/base/Buttons/Button';
+import cxm from '@shared/utils/cxm';
 
 export interface Props extends ButtonProps {
   href: string;
@@ -14,26 +15,24 @@ export const ButtonLink: FunctionComponent<Props> = (props) => {
   const {
     href,
     disabled,
-    target,
     block = false,
     ...otherProps
   } = props;
 
-  const ButtonComponent = <Button {...otherProps} block={block} disabled={disabled} />;
+  const Content = <Button {...otherProps} block={block} disabled={disabled} />;
 
   if (disabled || !href) {
-    return ButtonComponent;
+    return Content;
   }
 
   return (
     <Link
       href={href}
-      target={target}
-      className={clsxm([
+      className={cxm([
         block ? 'w-full' : ''
       ])}
     >
-      {ButtonComponent}
+      {Content}
     </Link>
   );
 };

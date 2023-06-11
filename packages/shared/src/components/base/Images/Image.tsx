@@ -4,7 +4,7 @@ import type { ImageProps } from 'next/image';
 import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } from 'react';
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 
-import clsxm from '@shared/utils/clsx';
+import cxm from '@shared/utils/cxm';
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 import styles from './Image.module.css';
 
@@ -61,10 +61,18 @@ const Image: FunctionComponent<Props> = (props) => {
       effect={effect}
       src={source}
       placeholderSrc={placeholder}
-      className={className}
       onError={handleError}
-      style={{ ...style, height, width }}
-      wrapperClassName={clsxm(styles.wrapper, wrapperClassName)}
+      width={width}
+      height={height}
+      style={style}
+      className={cxm([
+        'object-contain',
+        className
+      ])}
+      wrapperClassName={cxm([
+        styles.wrapper,
+        wrapperClassName
+      ])}
     />
   );
 };

@@ -1,5 +1,5 @@
-import ButtonLink from '@shared/components/base/Buttons/ButtonLink';
-import { withMobileLayoutPage } from '@shared/components/layouts/page/Mobile';
+import ButtonLink from '@shared/components/base/Navigations/ButtonLink';
+import { withMobileLayoutPage } from '@shared/components/layouts/Pages/Mobile';
 
 function Homepage() {
   return (
@@ -13,5 +13,6 @@ function Homepage() {
 }
 
 export default withMobileLayoutPage(Homepage, {
+  title: 'Homepage | Fullstack Next Template',
   classNameMobile: 'shadow-lg shadow-yellow-500'
 });

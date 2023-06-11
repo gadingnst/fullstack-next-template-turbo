@@ -69,6 +69,10 @@ Next, you can link your Turborepo to your Remote Cache by running the following 
 npx turbo link
 ```
 
+## Recomendation for better development
+- [Install Tailwind CSS intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Enable CSS module auto-completion](https://github.com/mrmckeb/typescript-plugin-css-modules#visual-studio-code)
+
 ## Useful Links
 
 Learn more about the power of Turborepo:

@@ -1,23 +1,19 @@
 import { type NextPageProps } from '@shared/types/global';
 import { Suspense } from 'react';
 
-import AboutClient from '@/modules/about/AboutClient';
 import VouchersResponse from '@/modules/components/VoucherResponse';
+import AboutWrapper from '@/modules/about/AboutWrapper.client';
 
-import { withMobileLayoutPage } from '@shared/components/layouts/page/Mobile';
-
-function About(props: NextPageProps) {
+function AboutPage(props: NextPageProps) {
   const { searchParams } = props;
   return (
-    <AboutClient searchParams={searchParams}>
+    <AboutWrapper searchParams={searchParams}>
       {/* Exampe calling Server Component inside Client Component with Suspense */}
       <Suspense fallback={<p className="text-center">Loading...</p>}>
         <VouchersResponse />
       </Suspense>
-    </AboutClient>
+    </AboutWrapper>
   );
 }
 
-export default withMobileLayoutPage(About, {
-  classNameMobile: 'shadow-violet-500 px-3'
-});
+export default AboutPage;

@@ -3,10 +3,9 @@ import Link from 'next/link';
 import Image from '@shared/components/base/Images/Image';
 
 import styles from './home.page.module.css';
-import { withMainLayoutPage } from '@shared/components/layouts/page/Main';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 
-function Home() {
+function HomePage() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -19,8 +18,8 @@ function Home() {
           src="https://gading.dev/media/banners/1.jpg"
           width={500}
           alt="Vercel Logo"
-          className="flex justify-center items-center rounded-md sm:min-h-[300px] h-full"
-          wrapperClassName="mt-10 max-w-full -mb-10"
+          className="flex justify-center items-center min-h-[150px] sm:min-h-[300px] rounded h-full object-fit"
+          wrapperClassName="mt-10 max-w-full -mb-10 rounded"
         />
 
         <p className={styles.description}>
@@ -82,4 +81,4 @@ function Home() {
   );
 }
 
-export default withMainLayoutPage(Home, {});
+export default HomePage;
