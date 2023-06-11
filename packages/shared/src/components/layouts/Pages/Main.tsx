@@ -1,8 +1,10 @@
 import { FunctionComponent, Fragment, PropsWithChildren } from 'react';
-import { type NextPageComponent } from '@shared/types/global';
-import clsxm from '@shared/utils/clsxm';
+import NextHead from 'next/head';
+import cxm from '@shared/utils/cxm';
+import { NextPageComponent } from '@shared/types/global';
 
 export interface LayoutConfigProps {
+  title?: string;
   className?: string;
 }
 
@@ -10,12 +12,14 @@ export type UnknownProps = Record<string, any>;
 
 export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigProps>> = (props) => {
   const {
+    title,
     children,
     className
   } = props;
   return (
     <Fragment>
-      <div className={clsxm(['flex flex-col min-h-screen', className])}>
+      {title && <NextHead><title>{title}</title></NextHead>}
+      <div className={cxm(['flex flex-col min-h-screen', className])}>
         {children}
       </div>
     </Fragment>
@@ -29,10 +33,12 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: LayoutConfigProps) => {
+export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: LayoutConfigProps|((pageProps: T) => LayoutConfigProps)) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
+    const layoutWithPageProps = typeof layoutProps === 'function'
+      ? layoutProps(pageProps) : layoutProps;
     return (
-      <MainLayoutPage {...layoutProps}>
+      <MainLayoutPage {...layoutWithPageProps}>
         <PageComponent {...pageProps} />
       </MainLayoutPage>
     );

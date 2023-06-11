@@ -1,8 +1,8 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
+import cxm from '@shared/utils/cxm';
 
-import { type NextPageComponent } from '@shared/types/global';
-import clsxm from '@shared/utils/clsxm';
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
+import { NextPageComponent } from '@shared/types/global';
 
 interface MobileLayoutConfigProps extends LayoutConfigProps {
   classNameMobile?: string;
@@ -17,7 +17,7 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
   return (
     <MainLayoutPage {...layoutPropsWithPageProps}>
       <div
-        className={clsxm([
+        className={cxm([
           'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
           classNameMobile
         ])}
@@ -33,15 +33,18 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
  * @param layoutProps - The props to pass to the layout
  * @returns - NextPage
  */
-export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps: MobileLayoutConfigProps) => {
+export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: MobileLayoutConfigProps|((pageProps: T) => MobileLayoutConfigProps)) => {
   const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
+    const layoutPropsWithPageProps = typeof layoutProps === 'function'
+      ? layoutProps(pageProps) : layoutProps;
     const {
-      classNameMobile
-    } = layoutProps;
+      classNameMobile,
+      ...otherMainLayoutProps
+    } = layoutPropsWithPageProps || {};
     return (
-      <MainLayoutPage {...layoutProps}>
+      <MainLayoutPage {...otherMainLayoutProps}>
         <div
-          className={clsxm([
+          className={cxm([
             'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
             classNameMobile
           ])}

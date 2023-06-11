@@ -1,6 +1,6 @@
-import clsxm from '@shared/utils/clsxm';
 import Link, { type LinkProps } from 'next/link';
 import { AnchorHTMLAttributes, PropsWithChildren } from 'react';
+import cxm from '@shared/utils/cxm';
 
 type NextLinkProps = PropsWithChildren<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>
   & LinkProps
@@ -14,11 +14,11 @@ function NextLink(props: Props) {
   const { disabled = false, className } = props;
   return (
     <Link
-      className={clsxm([
-        disabled && 'opacity-60',
+      {...props}
+      className={cxm([
+        disabled && 'opacity-60 pointer-events-none cursor-not-allowed',
         className
       ])}
-      {...props}
     />
   );
 }
