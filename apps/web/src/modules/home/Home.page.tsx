@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import Image from '@shared/components/base/Images/Image';
 
-import styles from './home.page.module.css';
+import styles from './Home.page.module.css';
 import VouchersResponse from '@/modules/components/VoucherResponse';
 
 function HomePage() {
