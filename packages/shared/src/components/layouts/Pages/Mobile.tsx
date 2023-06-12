@@ -1,5 +1,5 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
-import clx from '@shared/utils/cxm';
+import cxm from '@shared/utils/cxm';
 
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
 import { NextPageComponent } from '@shared/types/global';
