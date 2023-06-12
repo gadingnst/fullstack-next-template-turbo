@@ -1,5 +1,5 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
-import cxm from '@shared/utils/cxm';
+import clx from '@shared/utils/cxm';
 
 import { MainLayoutPage, LayoutConfigProps, UnknownProps } from './Main';
 import { NextPageComponent } from '@shared/types/global';
@@ -8,14 +8,14 @@ interface MobileLayoutConfigProps extends LayoutConfigProps {
   classNameMobile?: string;
 }
 
-const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>> = (props) => {
+const MobileLayoutPage: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>> = (props) => {
   const {
     classNameMobile,
     children,
-    ...layoutPropsWithPageProps
+    ...layoutWithPageProps
   } = props;
   return (
-    <MainLayoutPage {...layoutPropsWithPageProps}>
+    <MainLayoutPage {...layoutWithPageProps}>
       <div
         className={cxm([
           'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
@@ -34,27 +34,16 @@ const MobileLayout: FunctionComponent<PropsWithChildren<MobileLayoutConfigProps>
  * @returns - NextPage
  */
 export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: MobileLayoutConfigProps|((pageProps: T) => MobileLayoutConfigProps)) => {
-  const MobileLayoutPage: FunctionComponent<T> = (pageProps) => {
-    const layoutPropsWithPageProps = typeof layoutProps === 'function'
+  const MobileLayout: FunctionComponent<T> = (pageProps) => {
+    const layoutWithPageProps = typeof layoutProps === 'function'
       ? layoutProps(pageProps) : layoutProps;
-    const {
-      classNameMobile,
-      ...otherMainLayoutProps
-    } = layoutPropsWithPageProps || {};
     return (
-      <MainLayoutPage {...otherMainLayoutProps}>
-        <div
-          className={cxm([
-            'relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl',
-            classNameMobile
-          ])}
-        >
-          <PageComponent {...pageProps} />
-        </div>
-      </MainLayoutPage>
+      <MobileLayoutPage {...(layoutWithPageProps || {})}>
+        <PageComponent {...pageProps} />
+      </MobileLayoutPage>
     );
   };
-  return MobileLayoutPage;
+  return MobileLayout;
 };
 
-export default MobileLayout;
+export default MobileLayoutPage;
