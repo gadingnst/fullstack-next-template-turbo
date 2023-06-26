@@ -38,7 +38,7 @@ export const withMobileLayoutPage = <T extends UnknownProps>(PageComponent: Next
     const layoutWithPageProps = typeof layoutProps === 'function'
       ? layoutProps(pageProps) : layoutProps;
     return (
-      <MobileLayoutPage {...(layoutWithPageProps || {})}>
+      <MobileLayoutPage {...layoutWithPageProps ?? {}}>
         <PageComponent {...pageProps} />
       </MobileLayoutPage>
     );
