@@ -5,6 +5,8 @@ import { FunctionComponent, ReactEventHandler, useCallback, useMemo, useState } 
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 
 import cxm from '@shared/utils/cxm';
+import useUpdated from '@shared/hooks/useUpdated';
+
 import { DEFAULT_PLACEHOLDER, useSize } from './helpers';
 import styles from './Image.module.css';
 
@@ -51,6 +53,10 @@ const Image: FunctionComponent<Props> = (props) => {
     onError?.(event);
   }, [onError, placeholder]);
 
+  useUpdated(() => {
+    setSource(imgSrc);
+  }, [imgSrc]);
+
   return (
     <LazyLoadImage
       useIntersectionObserver
@@ -60,17 +66,21 @@ const Image: FunctionComponent<Props> = (props) => {
       onClick={onClick}
       effect={effect}
       src={source}
-      placeholderSrc={placeholder}
       onError={handleError}
       width={width}
       height={height}
-      style={style}
+      style={{ ...style, height, width }}
+      placeholderSrc={placeholderSrc === '' ? undefined : placeholder}
       className={cxm([
         'object-contain',
+        height ? `h-[${height}px]` : 'h-auto',
+        width ? `w-[${width}px]` : 'w-auto',
         className
       ])}
       wrapperClassName={cxm([
         styles.wrapper,
+        height ? `h-[${height}px]` : 'h-auto',
+        width ? `w-[${width}px]` : 'w-auto',
         wrapperClassName
       ])}
     />

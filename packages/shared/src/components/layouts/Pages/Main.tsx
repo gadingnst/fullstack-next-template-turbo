@@ -35,10 +35,8 @@ export const MainLayoutPage: FunctionComponent<PropsWithChildren<LayoutConfigPro
  */
 export const withMainLayoutPage = <T extends UnknownProps>(PageComponent: NextPageComponent<T>, layoutProps?: LayoutConfigProps|((pageProps: T) => LayoutConfigProps)) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
-    const layoutWithPageProps = typeof layoutProps === 'function'
-      ? layoutProps(pageProps) : layoutProps;
     return (
-      <MainLayoutPage {...layoutWithPageProps}>
+      <MainLayoutPage {...layoutProps}>
         <PageComponent {...pageProps} />
       </MainLayoutPage>
     );

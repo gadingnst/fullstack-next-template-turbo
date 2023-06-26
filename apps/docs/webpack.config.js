@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @see https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config */
 function webpack(config) {
   return config;

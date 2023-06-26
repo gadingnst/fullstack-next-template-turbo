@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* @ts-check */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const headers = require('./headers.config');
