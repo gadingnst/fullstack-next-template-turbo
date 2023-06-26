@@ -1,5 +1,18 @@
 {
-  "private": true,
+  "name": "@gadingnst/fullstack-next-template-turbo",
+  "private": false,
+  "author": "Sutan Gading Fadhillah Nasution <contact@gading.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gadingnst/fullstack-next-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gadingnst/fullstack-next-template/issues"
+  },
+  "packageManager": "npm@9.7.2",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -13,8 +26,6 @@
     "prettier": "^2.5.1",
     "turbo": "^1.9.7"
   },
-  "name": "wallet-project",
-  "packageManager": "npm@9.4.0",
   "workspaces": [
     "apps/*",
     "packages/*"
