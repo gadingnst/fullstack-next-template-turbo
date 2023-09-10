@@ -2,6 +2,8 @@ module.exports = {
   'import/no-default-export': 'off',
   'import/no-extraneous-dependencies': 'off',
   'eslint-comments/require-description': 'off',
+  'unicorn/filename-case': 'off',
+  '@typescript-eslint/explicit-function-return-type': 'off',
   'semi': ['error', 'always'],
   'indent': ['error', 2, { 'SwitchCase': 1 }],
   'comma-dangle': ['error', 'never'],
@@ -72,5 +74,20 @@ module.exports = {
     {
       'allowTemplateLiterals': true
     }
-  ]
+  ],
+  '@typescript-eslint/no-unsafe-assignment': 'off',
+  '@typescript-eslint/no-unsafe-call': 'off',
+  '@typescript-eslint/no-unsafe-member-access': 'off',
+  '@typescript-eslint/no-unsafe-argument': 'off'
+  // '@typescript-eslint/naming-convention': [
+  //   'error',
+  //   {
+  //     'selector': 'interface',
+  //     'format': ['PascalCase'],
+  //     'custom': {
+  //       'regex': '^I[A-Z]',
+  //       'match': true
+  //     }
+  //   }
+  // ]
 }

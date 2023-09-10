@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "mongodb": "^6.0.0",
     "shared": "*"
   },
   "devDependencies": {
