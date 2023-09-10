@@ -1,6 +1,7 @@
 module.exports = {
   'import/no-default-export': 'off',
   'import/no-extraneous-dependencies': 'off',
+  'eslint-comments/require-description': 'off',
   'semi': ['error', 'always'],
   'indent': ['error', 2, { 'SwitchCase': 1 }],
   'comma-dangle': ['error', 'never'],

@@ -14,7 +14,8 @@
     "prettier": "^3.0.3",
     "tsconfig": "*",
     "turbo": "latest",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "typescript-plugin-css-modules": "^5.0.1"
   },
   "name": "xpander-web",
   "packageManager": "npm@9.8.1",
