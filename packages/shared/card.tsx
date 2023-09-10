@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 
 export function Card({
   className,
   title,
   children,
-  href,
+  href
 }: {
   className?: string;
   title: string;
