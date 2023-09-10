@@ -1,5 +1,19 @@
 {
-  "private": true,
+  "name": "@gadingnst/fullstack-next-template-turbo",
+  "version": "0.1.0",
+  "private": false,
+  "author": "Sutan Gading Fadhillah Nasution <contact@gading.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gadingnst/fullstack-next-template-turbo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gadingnst/fullstack-next-template-turbo/issues"
+  },
+  "packageManager": "npm@9.8.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -17,8 +31,6 @@
     "typescript": "^5.2.2",
     "typescript-plugin-css-modules": "^5.0.1"
   },
-  "name": "xpander-web",
-  "packageManager": "npm@9.8.1",
   "workspaces": [
     "apps/*",
     "packages/*"
