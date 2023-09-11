@@ -1,11 +1,5 @@
-/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
   type Db,
-  type Document,
   type Collection,
   MongoClient,
   ObjectId
@@ -32,7 +26,7 @@ abstract class Model<T> {
    * In production mode, it's best to not use a global variable.
    * @see https://github.com/vercel/next.js/blob/canary/examples/with-mongodb/lib/mongodb.ts
    */
-  protected async connect(): Promise<Collection<Document>> {
+  protected async connect(): Promise<Collection> {
     let db: Db;
     const client = new MongoClient(MONGODB_URI);
     const connect = () => client.connect().then(() => client.db(DB_NAME));
